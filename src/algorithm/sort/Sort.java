@@ -1,7 +1,7 @@
 /**
  * 
  */
-package interview;
+package algorithm.sort;
 
 import java.util.Arrays;
 
@@ -69,6 +69,7 @@ class MergeSort extends Base{
 			Merge(temp,b,s,m,t);
 		}
 	}
+	
 	public void sort(int a[], int i, int j){
 		Msort(a,a,i,j);
 	}

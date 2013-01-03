@@ -37,7 +37,7 @@ int miniTree(BStree *t){
     else return miniTree(t->lchild);
 }
 
-// 
+// mirror a tree to another copy or in place
 Btree* mirrorTree(Btree *t){
    if(t != null){
 	Btree *m = createNode();
@@ -47,3 +47,46 @@ Btree* mirrorTree(Btree *t){
     	return m;
     }else return null;
 }
+
+// find the Nth item in a sorted binary search tree
+BSTree *findN(BSTree *t, int *count, int N){
+   BSTree* s;
+   if(t != null){
+	s = findN(t->lchild, count, N);
+	if(s != null) return s;
+        else {
+	      *count += 1;
+	      if(*count == N) return t;
+              else {
+		  s = findN(t->rchild, count, N);
+		  if(s != null) return s;
+		  else return null;
+        }
+    }else return null;
+}
+int main(){
+int count = 0; s = findN(T, &count, N);
+if(s != null) printNode(s);
+else printf("tree size less than: %d \n"+N);
+return 0;
+}
+
+// copy a tree to new place
+BTree *copyTree(BTree *t){
+    if(t != null){
+	BTree *m = (BTree *) malloc(sizeof(BTree));
+	m->data = t->data;
+	m->lchild = copyTree(t->lchild);
+	m->rchild = copyTree(t->rchild);
+	return m;
+    } else return null;
+}
+
+// check if a tree is sorted binary search tree
+int checkBSTree(BTree *t){
+    if(t != null){
+	if(t->lchild != null && (t->lchild)->data > t->data) return 0;
+	if(t->rchild != null && (t->rchild)->data < t->data) return 0;
+	return checkBSTree(t->lchild) && checkBSTree(t->rchild);
+    }else return 1;
+}         
