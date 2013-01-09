@@ -89,4 +89,39 @@ int checkBSTree(BTree *t){
 	if(t->rchild != null && (t->rchild)->data < t->data) return 0;
 	return checkBSTree(t->lchild) && checkBSTree(t->rchild);
     }else return 1;
+}
+
+// search BSTree
+BSTree *searchBSTree(BSTree *t, int key){
+      if(!t || t->data == key) return t;
+      else if(t->data > key) return searchBSTree(t->lchild, key);
+      else return searchBSTree(t->rchild, key);
+}
+// delete BSTree
+
+int deleteBST(BSTree *t, int key){
+	if(!T) return -1;
+	else {
+	    if(t->key == key) delete(t);
+	    else if(t->key < key) deleteBST(t->rchild, key);
+	    else deleteBST(t->lchild, key);
+	    return 1;
+	}
 }         
+
+// count total number of nodes in the tree
+int count(BTree *t){
+     int numl=0, numr=0;
+     if(t != null){
+		if(!(t->lchild) && !(t->rchild)) return 1;
+		else{ 
+	   		if(t->lchild != null) numl = count(t->lchild);
+	   		if(t->rchild != null) numr = count(t->rchild);
+	   		return numl+numr;
+		}
+     } else return 0;
+}
+
+// delete a node on a tree
+
+
