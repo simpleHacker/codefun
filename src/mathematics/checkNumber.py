@@ -1,5 +1,5 @@
 '''
-google-interview-questions 33 Answers
+google-interview-questions
 
 we will name a number "aggregated number" if this number has the following attribute:
 just like the Fibonacci numbers
@@ -48,3 +48,33 @@ def checkAggNum(num):
                     break
                 long = long2
     return false
+
+public boolean isPrime(int n){
+        if(n < 2) return false;
+        else if(n==2) return true;
+        else if(n % 2 == 0) return false;
+        else
+            for(int i=3;i<Math.sqrt(n);i+=2){ // all odds
+                if(n % i == 0) return true;
+            }
+        return true;
+}
+    
+public void printPrime(int n){
+        boolean[] ptable = new boolean[n];
+        Arrays.fill(ptable,true);
+        int k=2;
+        
+        while(k<n){    
+            if(ptable[k]){
+                for(int i=k+k;i<n;i=i+k){
+                    ptable[i] = false;
+                }                
+            }
+            k++;
+            continue;
+        }
+        for(int i=2;i<n;++i)
+            if(ptable[i]) 
+                System.out.println(i);
+    }

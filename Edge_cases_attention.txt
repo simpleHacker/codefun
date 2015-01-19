@@ -1,0 +1,22 @@
+Before coding, 
+- Must make clear of the question, and list all constraints for the question,
+- also with all special cases at the head.
+
+- in method body, put algorithm steps in it as comment, and talk along to interviewer
+- At last, coding as fast as I can.
+
+=== number related questions ===
+
+* integer or decimal - linear sort different
+* negotive vs positive - linear sort different
+* 0 or non-0 - computation different
+* the range - representation, sort, computation exception
+* calculation conversion and decimal cut issue
+
+=== String or char related questions ===
+
+* null or size 0 -- they different
+* spaces, tab, return
+* for C, last char maybe '\0', need to attend
+* letter, number or symbols -- ASCII
+* upperCase or lowerCase for letter
